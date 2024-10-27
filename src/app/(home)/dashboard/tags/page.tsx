@@ -4,7 +4,7 @@ import { Tag, columns } from "./_components/columns";
 import { DataTable } from "./_components/data-table";
 import NewTagButton from "./_components/NewTagButton";
 import { toast } from "@/components/ui/use-toast";
-import { prisma } from "@/prismaClient";
+
 export const dynamic = "force-dynamic";
 
 async function getData(): Promise<Tag[]> {

@@ -30,7 +30,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { LoadingButton } from "@/components/ui/loading-button";
 import MultipleSelector, { Option } from "@/components/ui/multiple-selector";
-import { prisma } from "@/prismaClient";
+
 
 const MAX_UPLOAD_SIZE = 1024 * 1024 * 3; // 3MB
 const ACCEPTED_FILE_TYPES = ["image/jpeg", "image/svg"];

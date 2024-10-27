@@ -4,24 +4,16 @@ import DefaultLayout from "@/components/Layouts/DefaultLaout";
 import { Animation_Url, columns } from "./_components/columns";
 import { DataTable } from "./_components/data-table";
 import NewAnimationButton from "./_components/NewAnimationButton";
-import { prisma } from "@/prismaClient";
-export const dynamic = "force-dynamic";
 
 async function getData(): Promise<Animation_Url[]> {
-  try{
-  await prisma.animations_url
-    .findMany({})
-    .then((dbresolve) => {
-      return dbresolve;
-    })
-    .catch((dbreject) => {
-      console.log(dbreject);
-    });
-  }
-  catch(error){
-    console.log(error);
-  }
-  return [];
+  const resp = await fetch(`${process.env.NEXT_PUBLIC_URL}/animations/listall`,{
+    method:"GET",
+    cache:"no-store"
+  });
+  
+    if (resp.status === 200 && resp.statusText === "OK") return resp.json();
+    return [];
+  
 }
 
 export default async function AnimationPage() {

@@ -7,24 +7,24 @@ import { useRouter } from "next/navigation";
 const DropdownUser =() => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const router=useRouter();
-  const handleLogout=async ()=>{
-    const resp=await fetch(`/api/admin/auth/logout`,{
-      method:"GET",
-      credentials: "include",
-      headers: { "Content-Type": "application/json" },
-    })
-    const data=await resp.json();
-    if(data.error){
-    console.log(data.error)
-    }
-    else{
-    console.log(data.message);
-    if(typeof localStorage!=="undefined"){
-      localStorage.clear();
-    }
-    router.push("/admin/login");
-  }
-  }
+  // const handleLogout=async ()=>{
+  //   const resp=await fetch(`/api/admin/auth/logout`,{
+  //     method:"GET",
+  //     credentials: "include",
+  //     headers: { "Content-Type": "application/json" },
+  //   })
+  //   const data=await resp.json();
+  //   if(data.error){
+  //   console.log(data.error)
+  //   }
+  //   else{
+  //   console.log(data.message);
+  //   if(typeof localStorage!=="undefined"){
+  //     localStorage.clear();
+  //   }
+  //   router.push("/admin/login");
+  // }
+  // }
 
   return (
     <ClickOutside onClick={() => setDropdownOpen(false)} className="relative">
@@ -95,7 +95,7 @@ const DropdownUser =() => {
                 Mayank Setiya
               </span>
               <span className="block font-medium text-dark-5 dark:text-dark-6">
-                setiyamayank30@gmail.com
+                mayank30@gmail.com
               </span>
             </span>
           </div>
@@ -162,7 +162,9 @@ const DropdownUser =() => {
           </ul>
           <div className="p-2.5">
             <form >
-            <button onClick={handleLogout} type="button" className="flex w-full items-center gap-2.5 rounded-[7px] p-2.5 text-sm font-medium text-dark-4 duration-300 ease-in-out hover:bg-gray-2 hover:text-dark dark:text-dark-6 dark:hover:bg-dark-3 dark:hover:text-white lg:text-base">
+            <button 
+            // onClick={handleLogout} 
+            type="button" className="flex w-full items-center gap-2.5 rounded-[7px] p-2.5 text-sm font-medium text-dark-4 duration-300 ease-in-out hover:bg-gray-2 hover:text-dark dark:text-dark-6 dark:hover:bg-dark-3 dark:hover:text-white lg:text-base">
               <svg
                 className="fill-current"
                 width="18"
